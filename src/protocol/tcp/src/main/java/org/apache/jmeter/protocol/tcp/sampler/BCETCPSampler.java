@@ -58,7 +58,7 @@ public class BCETCPSampler extends AbstractTCPClient {
     private static final Logger log = LoggerFactory.getLogger(BCETCPSampler.class);
 
     private static final int EOM_INT = JMeterUtils.getPropDefault("tcp.BinaryTCPClient.eomByte", 1000); // $NON_NLS-1$
-
+    private int index = 0;
     public BCETCPSampler() {
         super();
         setEolByte(EOM_INT);
@@ -103,10 +103,14 @@ public class BCETCPSampler extends AbstractTCPClient {
      */
     @Override
     public void write(OutputStream os, String hexEncodedBinary) throws IOException{
+        log.info(String.valueOf(index));
         String message = buildTheSignalMessage(Long.parseLong(hexEncodedBinary));
-        String messageWithConnectionString = "23424345230d0a" + message;
-        os.write(hexStringToByteArray(messageWithConnectionString));
+        if (index == 0){
+            message = "23424345230d0a" + message;
+        }
+        os.write(hexStringToByteArray(message));
         os.flush();
+        index++;
         if(log.isDebugEnabled()) {
             log.debug("Wrote: " + hexEncodedBinary);
         }
@@ -183,6 +187,8 @@ public class BCETCPSampler extends AbstractTCPClient {
     }
 
     private static String generateNewMessage(String heximei, String hextime) {
+        //IMEI 2b00a56628  TIME 478c21cf ab4072f41c429076aa41001c2c1a00d30c764cd3805e6e930b3110a401039a0865a70037d6
+        // "%s 2b00a56628 %s ab4072f41c429076aa41001c2c1a00d30c764cd3805e6e930b3110a401039a0865a70037d6";
         String rawMessage = "%s5b01a55344%sffc302a000804000d74f3b4299ddc541001875540200000000d78000009a375100e8481b005a1000000000a401046856f55b002600000000000000000000000044f798b9bfffc302a000804000d74f3b4299ddc541001875540200000000d6800000a2375e00114936005a1000000000a401046856f55b0026000000000000000000000000440799b9bfffc302a000804000d74f3b4299ddc541001975540200000000d6800000bd375e002c4936005a1000000000a401046856f55b0026000000000000000000000000442799b9bfffc302a000804000d74f3b4299ddc541001775540200000000d7800000fa365e00394836005a1000000000a401046856f55b0026000000000000000000000000443799b9bfffc302a000804000d74f3b4299ddc541001875540200000000d7800000533743008a4828005a1000000000a401046856f55b00260000000000000000000000005b";
         return String.format(rawMessage, heximei, hextime);
     }
