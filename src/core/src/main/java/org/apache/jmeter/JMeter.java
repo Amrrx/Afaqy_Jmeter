@@ -366,6 +366,9 @@ public class JMeter implements JMeterPlugin {
      */
     private void startGui(String testFile) {
         System.out.println("================================================================================");//NOSONAR
+        System.out.println("Afaqy Mode");
+        System.out.println("You are using a custom modified version of Jmeter.");
+        System.out.println("================================================================================");//NOSONAR
         System.out.println("Don't use GUI mode for load testing !, only for Test creation and Test debugging.");//NOSONAR
         System.out.println("For load testing, use CLI Mode (was NON GUI):");//NOSONAR
         System.out.println("   jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]");//NOSONAR

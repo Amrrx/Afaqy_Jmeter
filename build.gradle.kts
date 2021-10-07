@@ -62,20 +62,21 @@ fun Project.boolProp(name: String) =
 
 // Release candidate index
 val String.v: String get() = rootProject.extra["$this.version"] as String
-version = "jmeter".v + releaseParams.snapshotSuffix
+version = "jmeter".v + " Afaqy_MOD"
+//version = "jmeter".v + releaseParams.snapshotSuffix
 
 val displayVersion by extra {
-    version.toString() +
-            if (releaseParams.release.get()) {
-                ""
-            } else {
-                // Append 7 characters of Git commit id for snapshot version
-                val grgit: Grgit? by project
-                grgit?.let { " " + it.head().abbreviatedId }
-            }
+    version.toString() + " " + rootProject.extra["afaqy_mod.version"]
+//            if (releaseParams.release.get()) {
+//                ""
+//            } else {
+//                // Append 7 characters of Git commit id for snapshot version
+//                val grgit: Grgit? by project
+//                grgit?.let { " " + it.head().abbreviatedId + rootProject.extra["afaqy_mod.version"]}
+//            }
 }
 
-println("Building JMeter $version")
+println("Building JMeter $version " + rootProject.extra["afaqy_mod.version"])
 
 fun reportsForHumans() = !(System.getenv()["CI"]?.toBoolean() ?: boolProp("CI") ?: false)
 

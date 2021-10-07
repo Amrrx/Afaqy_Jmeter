@@ -44,6 +44,7 @@ public class OpenLinkAction extends AbstractAction {
         commands.add(ActionNames.LINK_FUNC_REF);
         commands.add(ActionNames.LINK_NIGHTLY_BUILD);
         commands.add(ActionNames.LINK_RELEASE_NOTES);
+        commands.add(ActionNames.MOD_AUTHOR_LINK);
     }
 
     private static final Map<String, String> initLinkMap() {
@@ -53,6 +54,7 @@ public class OpenLinkAction extends AbstractAction {
         map.put(ActionNames.LINK_FUNC_REF, "https://jmeter.apache.org/usermanual/functions.html");
         map.put(ActionNames.LINK_NIGHTLY_BUILD, "https://jmeter.apache.org/nightly.html");
         map.put(ActionNames.LINK_RELEASE_NOTES, "https://jmeter.apache.org/changes.html");
+        map.put(ActionNames.MOD_AUTHOR_LINK, "https://www.linkedin.com/in/amrahmedaly");
         return map;
     }
     /**

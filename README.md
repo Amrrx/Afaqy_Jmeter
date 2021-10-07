@@ -13,9 +13,12 @@ By Afaqy Software quality team.
 [![Javadocs](https://www.javadoc.io/badge/org.apache.jmeter/ApacheJMeter_core.svg)](https://www.javadoc.io/doc/org.apache.jmeter/ApacheJMeter_core)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/apache/jmeter.svg?style=social)](https://twitter.com/intent/tweet?text=Powerful%20load%20testing%20with%20Apache%20JMeter:&url=https://jmeter.apache.org)
 
+### Version
+Afaqy_MOD: 1.1.0
 
-### Protocols
+Jmeter: 5.4.1
 
+# Protocols
 Supported device protocols:
 
 - BCE Standard (Not SDK/IOT)

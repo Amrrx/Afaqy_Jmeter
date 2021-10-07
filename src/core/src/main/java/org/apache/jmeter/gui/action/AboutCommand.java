@@ -102,7 +102,7 @@ public class AboutCommand extends AbstractAction {
         if (about != null) {
             return about;
         }
-        about = new EscapeDialog(mainFrame, "About Apache JMeter - AFAQY MOD", false);
+        about = new EscapeDialog(mainFrame, "About Apache JMeter", false);
         about.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -112,7 +112,7 @@ public class AboutCommand extends AbstractAction {
 
         JLabel copyright = new JLabel(JMeterUtils.getJMeterCopyright(), SwingConstants.CENTER);
         JLabel rights = new JLabel("All Rights Reserved.", SwingConstants.CENTER);
-        JLabel version = new JLabel("Apache JMeter Version - AFAQY MOD" + JMeterUtils.getJMeterVersion(), SwingConstants.CENTER);
+        JLabel version = new JLabel("Apache JMeter Version " + JMeterUtils.getJMeterVersion(), SwingConstants.CENTER);
         JLabel releaseNotes = new JLabel("<html><a href=\"https://jmeter.apache.org/changes.html\">Release notes</a></html>", SwingConstants.CENTER);
         releaseNotes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         releaseNotes.addMouseListener(new MouseAdapter() {
@@ -124,6 +124,17 @@ public class AboutCommand extends AbstractAction {
                 }
             }
         });
+        JLabel author = new JLabel("<html><a href=\"https://www.linkedin.com/in/amrahmedaly/\">By Amr Aly @ QC Team</a></html>", SwingConstants.CENTER);
+        author.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        author.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() > 0) {
+                    ActionRouter.getInstance().doActionNow(
+                            new ActionEvent(e.getSource(), e.getID(), ActionNames.MOD_AUTHOR_LINK));
+                }
+            }
+        });
         JPanel infos = new JPanel();
         infos.setOpaque(false);
         infos.setLayout(new GridLayout(0, 1));
@@ -131,6 +142,7 @@ public class AboutCommand extends AbstractAction {
         infos.add(copyright);
         infos.add(rights);
         infos.add(version);
+        infos.add(author);
         infos.add(releaseNotes);
         Container panel = about.getContentPane();
         panel.setLayout(new BorderLayout());

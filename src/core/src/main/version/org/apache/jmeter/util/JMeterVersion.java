@@ -27,7 +27,7 @@ public final class JMeterVersion {
     }
 
     static String getVERSION() {
-        return "@VERSION@" + " - AFAQY MOD";
+        return "@VERSION@";
     }
 
     public static String getCopyRight() {
