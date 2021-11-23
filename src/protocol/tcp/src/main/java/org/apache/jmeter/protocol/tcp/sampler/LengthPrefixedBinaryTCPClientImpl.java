@@ -59,6 +59,11 @@ public class LengthPrefixedBinaryTCPClientImpl extends TCPClientDecorator {
         this.tcpClient.write(os, s);
     }
 
+    @Override
+    public void write(OutputStream os, String s, String imei) throws IOException {
+
+    }
+
     /**
      * {@inheritDoc}
      */

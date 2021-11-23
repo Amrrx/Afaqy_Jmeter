@@ -60,6 +60,16 @@ public interface TCPClient {
 
     /**
      *
+     * @param os -
+     *            OutputStream for socket
+     * @param s -
+     *            String to write
+     * @throws IOException when writing fails
+     */
+    void write(OutputStream os, String s, String imei) throws IOException;
+
+    /**
+     *
      * @param is -
      *            InputStream for socket
      * @return String read from socket

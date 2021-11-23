@@ -14,7 +14,9 @@ By Afaqy Software quality team.
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/apache/jmeter.svg?style=social)](https://twitter.com/intent/tweet?text=Powerful%20load%20testing%20with%20Apache%20JMeter:&url=https://jmeter.apache.org)
 
 ### Version
-Afaqy_MOD: 1.1.0
+Afaqy_MOD: 1.2
+- Create new custom TCP sampler for AFAQY tracker devices
+- Add the custom message as input inside the custom sampler
 
 Jmeter: 5.4.1
 

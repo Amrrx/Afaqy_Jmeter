@@ -62,11 +62,11 @@ fun Project.boolProp(name: String) =
 
 // Release candidate index
 val String.v: String get() = rootProject.extra["$this.version"] as String
-version = "jmeter".v + " Afaqy_MOD"
+version = "jmeter".v + "_Afaqy_MOD_v1.2"
 //version = "jmeter".v + releaseParams.snapshotSuffix
 
 val displayVersion by extra {
-    version.toString() + " " + rootProject.extra["afaqy_mod.version"]
+    version.toString() + "_" + rootProject.extra["afaqy_mod.version"]
 //            if (releaseParams.release.get()) {
 //                ""
 //            } else {

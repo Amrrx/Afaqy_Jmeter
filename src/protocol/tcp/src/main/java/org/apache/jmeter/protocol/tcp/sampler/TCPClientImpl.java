@@ -70,6 +70,11 @@ public class TCPClientImpl extends AbstractTCPClient {
         os.flush();
     }
 
+    @Override
+    public void write(OutputStream os, String s, String imei) throws IOException {
+
+    }
+
     /**
      * {@inheritDoc}
      */
