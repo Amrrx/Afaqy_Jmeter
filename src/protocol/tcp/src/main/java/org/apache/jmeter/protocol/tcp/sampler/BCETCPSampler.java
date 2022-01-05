@@ -218,7 +218,9 @@ public class BCETCPSampler extends AbstractTCPClient {
     }
 
     private static String getCurrTimeMessage() {
-        long currUnixTime = System.currentTimeMillis() / 1000L;
+        long timeStamp = 1640532005000L;
+        long currUnixTime = timeStamp  / 1000L - 1500;
+        System.out.println(currUnixTime);
         long unixToTime = (currUnixTime - 0x47798280) / 2;
         String binaryTime = Long.toBinaryString(unixToTime) + "0111";
         Long decimalTime = toUnsignedInt(binaryToDecimal(binaryTime));
